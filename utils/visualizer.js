@@ -44,8 +44,8 @@ class Visualizer {
 
     const { inputs, outputs, weights, biases } = layer;
 
-    for (let i = 0; i < inputs.length; i++) {
-      for (let j = 0; j < outputs.length; j++) {
+    for (let i = 0; i < inputs.length; ++i) {
+      for (let j = 0; j < outputs.length; ++j) {
         ctx.beginPath();
         ctx.moveTo(Visualizer.#getNodeX(inputs, i, left, right), bottom);
         ctx.lineTo(Visualizer.#getNodeX(outputs, j, left, right), top);
@@ -56,7 +56,7 @@ class Visualizer {
     }
 
     const nodeRadius = 18;
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; ++i) {
       const x = Visualizer.#getNodeX(inputs, i, left, right);
       ctx.beginPath();
       ctx.arc(x, bottom, nodeRadius, 0, Math.PI * 2);
@@ -68,7 +68,7 @@ class Visualizer {
       ctx.fill();
     }
 
-    for (let i = 0; i < outputs.length; i++) {
+    for (let i = 0; i < outputs.length; ++i) {
       const x = Visualizer.#getNodeX(outputs, i, left, right);
       ctx.beginPath();
       ctx.arc(x, top, nodeRadius, 0, Math.PI * 2);
